@@ -2,8 +2,7 @@ package com.olegsaz209.evorter
 
 import android.app.Application
 import android.content.Intent
-import com.olegsaz209.evorter.activity.main.MainActivity
-import com.olegsaz209.evorter.splashactivity.SplashActivity
+import com.olegsaz209.evorter.activity.splashactivity.SplashActivity
 
 class MyApp : Application()  {
     override fun onCreate() {

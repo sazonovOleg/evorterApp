@@ -1,4 +1,4 @@
-package com.olegsaz209.evorter.splashactivity
+package com.olegsaz209.evorter.activity.splashactivity
 
 import android.app.Activity
 import android.app.Application

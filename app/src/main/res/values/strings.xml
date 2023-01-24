@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Evorter</string>
+    <string name="test">Test</string>
+    <string name="skip">Skip</string>
+    <string name="cont">Continue</string>
+    <string name="take_road">Что взять в дорогу ?</string>
+    <string name="currency_converter">Конвертер валют</string>
+    <string name="visa_country">Страны в которые нужна виза</string>
 </resources>
