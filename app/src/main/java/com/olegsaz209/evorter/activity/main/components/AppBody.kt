@@ -1,33 +1,37 @@
 package com.olegsaz209.evorter.activity.main.components
 
-import android.util.Log
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
-import com.olegsaz209.evorter.R
-import com.olegsaz209.evorter.activity.main.MainActivityVM
-import com.olegsaz209.evorter.ui.colors.AppColors
+import androidx.compose.ui.unit.sp
 
 @Composable
 fun Body() {
     Column(
         Modifier
-            .fillMaxSize()
-            .padding(horizontal = 11.dp, vertical = 10.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
+            .padding(horizontal = 11.dp)
+            .offset(y = (0).dp)
+            .height(300.dp)
     ) {
-
+        Text(
+            text = "Popular Destination",
+            color = Color(0xFF000000),
+            fontSize = 20.sp,
+            fontWeight = FontWeight.SemiBold,
+            modifier = Modifier.padding(bottom = 5.dp)
+        )
+        LazyColumn {
+            items(5) {
+                MainItem()
+            }
+        }
     }
-}
-
-@Preview
-@Composable
-fun BodyPreview() {
-    Body()
 }

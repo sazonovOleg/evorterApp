@@ -20,7 +20,7 @@ fun Header() {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(vertical = 10.dp),
+            .padding(vertical = 5.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Start
     ) {
@@ -28,16 +28,16 @@ fun Header() {
             painterResource(R.drawable.logo_5),
             "title",
             modifier = Modifier
-                .width(45.dp)
-                .height(45.dp)
+                .width(30.dp)
+                .height(30.dp)
                 .clip(RoundedCornerShape(50.dp))
         )
         Text(
             text = "EVORTER",
-            fontSize = 18.sp,
+            fontSize = 14.sp,
             fontWeight = FontWeight.Bold,
-            modifier = Modifier.padding(start = 15.dp),
-            color = Color(0xFF000000)
+            modifier = Modifier.padding(start = 5.dp),
+            color = Color(0xFF494949)
         )
     }
 }

@@ -4,21 +4,17 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.Text
+import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.paint
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
-import com.olegsaz209.evorter.R
+import androidx.compose.ui.unit.dp
 import com.olegsaz209.evorter.activity.main.components.AppHeaderSlider
+import com.olegsaz209.evorter.activity.main.components.AppMenu
 import com.olegsaz209.evorter.activity.main.components.Body
-import com.olegsaz209.evorter.activity.main.components.Header
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(bundle: Bundle?) {
@@ -34,18 +30,24 @@ class MainActivity : ComponentActivity() {
 fun MainContent() {
     Column(
         Modifier
+            .background(
+                brush = Brush.horizontalGradient(
+                    colors = listOf(
+                        Color(0x4BBEBEBE),
+                        Color(0xB2FFCBBB),
+                    )
+                )
+            )
             .fillMaxSize()
-            .background(Color(0xFFFFFFFF)),
-            //.paint(painterResource(R.drawable.bg_3), contentScale = ContentScale.FillHeight),
-        Arrangement.Top
+            .offset(y = (0).dp),
+        verticalArrangement = Arrangement.SpaceBetween,
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Header()
         AppHeaderSlider()
-        //Body()
+        Body()
+        AppMenu()
     }
 }
-
-
 
 @Preview
 @Composable
