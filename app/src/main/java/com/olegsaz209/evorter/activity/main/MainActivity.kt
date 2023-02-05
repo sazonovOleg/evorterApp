@@ -12,22 +12,22 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.olegsaz209.evorter.activity.main.components.AppHeaderSlider
+import com.olegsaz209.evorter.activity.main.components.slider.AppHeaderSlider
 import com.olegsaz209.evorter.activity.main.components.AppMenu
-import com.olegsaz209.evorter.activity.main.components.Body
+import com.olegsaz209.evorter.activity.main.components.bodyContent.Body
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(bundle: Bundle?) {
         super.onCreate(bundle)
 
         setContent {
-            MainContent()
+            MainView()
         }
     }
 }
 
 @Composable
-fun MainContent() {
+fun MainView() {
     Column(
         Modifier
             .background(
@@ -51,6 +51,6 @@ fun MainContent() {
 
 @Preview
 @Composable
-fun MainContentPreview() {
-    MainContent()
+fun MainViewPreview() {
+    MainView()
 }

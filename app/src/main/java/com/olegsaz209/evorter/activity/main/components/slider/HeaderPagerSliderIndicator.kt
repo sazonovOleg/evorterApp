@@ -1,4 +1,4 @@
-package com.olegsaz209.evorter.activity.main.components
+package com.olegsaz209.evorter.activity.main.components.slider
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*

@@ -37,6 +37,24 @@
             android:theme="@android:style/Theme.Material.Light.NoActionBar"
             android:exported="true">
         </activity>
+
+        <activity
+            android:name=".activity.places.PlacesActivity"
+            android:theme="@android:style/Theme.Material.Light.NoActionBar"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".activity.booking.BookingActivity"
+            android:theme="@android:style/Theme.Material.Light.NoActionBar"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".activity.settings.SettingsActivity"
+            android:theme="@android:style/Theme.Material.Light.NoActionBar"
+            android:exported="true">
+        </activity>
     </application>
 
 </manifest>

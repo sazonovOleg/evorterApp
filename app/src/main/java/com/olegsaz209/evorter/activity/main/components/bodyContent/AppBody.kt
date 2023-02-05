@@ -1,4 +1,4 @@
-package com.olegsaz209.evorter.activity.main.components
+package com.olegsaz209.evorter.activity.main.components.bodyContent
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.height
@@ -12,14 +12,17 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.olegsaz209.evorter.activity.main.components.MainItem
 
 @Composable
 fun Body() {
+    val listBodyInfo = dataBodyInfoList
+
     Column(
         Modifier
-            .padding(horizontal = 11.dp)
+            .padding(horizontal = 10.dp)
             .offset(y = (0).dp)
-            .height(300.dp)
+            .height(310.dp)
     ) {
         Text(
             text = "Popular Destination",
@@ -29,8 +32,21 @@ fun Body() {
             modifier = Modifier.padding(bottom = 5.dp)
         )
         LazyColumn {
-            items(5) {
-                MainItem()
+            item() {
+                MainItem(
+                    listBodyInfo[0].namePlace,
+                    listBodyInfo[0].nameCountry,
+                    listBodyInfo[0].placeInfo,
+                    listBodyInfo[0].placeImage,
+                )
+            }
+            items(listBodyInfo.size - 1) {
+                MainItem(
+                    listBodyInfo[it].namePlace,
+                    listBodyInfo[it].nameCountry,
+                    listBodyInfo[it].placeInfo,
+                    listBodyInfo[it].placeImage,
+                )
             }
         }
     }

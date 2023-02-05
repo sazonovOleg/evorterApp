@@ -1,17 +1,15 @@
-package com.olegsaz209.evorter.activity.main.components
+package com.olegsaz209.evorter.activity.main.components.slider
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -46,7 +44,7 @@ fun HeaderPagerSlider(pagerState: PagerState) {
                         }
                     }
             ) {
-                val onBoardingSlide = onboardingList[page]
+                val pageSlide = sliderList[page]
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     modifier = Modifier.padding(start = 10.dp, top = 40.dp)
@@ -60,7 +58,7 @@ fun HeaderPagerSlider(pagerState: PagerState) {
                         textAlign = TextAlign.Start,
                     )
                     Text(
-                        "Wanna plan your next trip?",
+                        stringResource(id = pageSlide.title),
                         fontWeight = FontWeight.SemiBold,
                         fontSize = 18.sp,
                         color = Color(0xFFFAFAFA),
@@ -79,10 +77,8 @@ fun HeaderPagerSlider(pagerState: PagerState) {
                 ) {
                     Image(
                         painterResource(
-                            id = when (page) {
-                                0 -> R.drawable.img_3
-                                1 -> R.drawable.img_3
-                                2 -> R.drawable.img_3
+                            id = when (sliderList.size) {
+                                sliderList.size -> pageSlide.image
                                 else -> R.drawable.img_3
                             }
                         ),
@@ -98,7 +94,7 @@ fun HeaderPagerSlider(pagerState: PagerState) {
                         .offset(y = (270).dp)
                 ) {
                     Text(
-                        "Jasper National Park",
+                        stringResource(id = pageSlide.subtitle),
                         fontWeight = FontWeight.Bold,
                         fontSize = 18.sp,
                         color = Color(0xFFFFFFFF),
@@ -107,7 +103,7 @@ fun HeaderPagerSlider(pagerState: PagerState) {
                         textAlign = TextAlign.Start,
                     )
                     Text(
-                        " Alberta, Canada",
+                        stringResource(id = pageSlide.text),
                         fontWeight = FontWeight.Normal,
                         fontSize = 14.sp,
                         color = Color(0xFFFFFFFF),
