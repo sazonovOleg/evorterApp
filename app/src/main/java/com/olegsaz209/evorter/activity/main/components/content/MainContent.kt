@@ -1,4 +1,4 @@
-package com.olegsaz209.evorter.activity.main.components
+package com.olegsaz209.evorter.activity.main.components.content
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -14,10 +14,40 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.olegsaz209.evorter.R
 
 @Composable
-fun MainItem(
+fun MainContent() {
+    val listContent = dataContentList
+
+    Column(
+        Modifier
+            .padding(horizontal = 10.dp)
+            .offset(y = (0).dp)
+            .fillMaxSize()
+    ) {
+        Text(
+            text = "Popular Destination",
+            color = Color(0xFF000000),
+            fontSize = 20.sp,
+            fontWeight = FontWeight.SemiBold,
+            modifier = Modifier.padding(bottom = 5.dp)
+        )
+        Column() {
+            listContent.forEach {
+                MainItem(
+                    it.namePlace,
+                    it.nameCountry,
+                    it.placeInfo,
+                    it.placeImage,
+                )
+            }
+            Spacer(modifier = Modifier.height(60.dp))
+        }
+    }
+}
+
+@Composable
+private fun MainItem(
     nameOfPlace: Int,
     countryOfName: Int,
     infoOfPlace: Int,

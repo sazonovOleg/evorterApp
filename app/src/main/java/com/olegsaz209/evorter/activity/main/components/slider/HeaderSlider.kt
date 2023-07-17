@@ -1,11 +1,15 @@
 package com.olegsaz209.evorter.activity.main.components.slider
 
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.res.painterResource
@@ -16,17 +20,46 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.util.lerp
 import androidx.compose.ui.zIndex
-import com.google.accompanist.pager.ExperimentalPagerApi
-import com.google.accompanist.pager.HorizontalPager
-import com.google.accompanist.pager.PagerState
-import com.google.accompanist.pager.calculateCurrentOffsetForPage
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.google.accompanist.pager.*
 import com.olegsaz209.evorter.R
+import com.olegsaz209.evorter.activity.main.MainActivityVM
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.yield
 import kotlin.math.absoluteValue
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
-fun HeaderPagerSlider(pagerState: PagerState) {
+fun HeaderSlider(vm: MainActivityVM = viewModel()) {
+    val pagerState = rememberPagerState(
+        pageCount = sliderList.size
+    )
+
+    LaunchedEffect(Unit) {
+        while (true) {
+            yield()
+            delay(800000)
+            pagerState.animateScrollToPage(
+                page = (pagerState.currentPage + 1) % (pagerState.pageCount),
+                animationSpec = tween(600)
+            )
+        }
+    }
+
     Column(
+        Modifier
+            .height(390.dp)
+            .offset(y = (-20).dp)
+    ) {
+        PagerSlider(pagerState)
+    }
+}
+
+@OptIn(ExperimentalPagerApi::class)
+@Composable
+private fun PagerSlider(pagerState: PagerState) {
+    Column(
+        modifier = Modifier.clip(RoundedCornerShape(bottomEnd = 80.dp))
     ) {
         HorizontalPager(state = pagerState) { page ->
             Box(
@@ -84,7 +117,7 @@ fun HeaderPagerSlider(pagerState: PagerState) {
                         ),
                         contentDescription = "",
                         modifier = Modifier
-                            .height(370.dp)
+                            .height(362.dp)
                             .fillMaxWidth()
                     )
                 }
@@ -114,7 +147,34 @@ fun HeaderPagerSlider(pagerState: PagerState) {
                     )
                 }
             }
-            HeaderPagerSliderIndicator(pagerState)
+            SliderIndicator(pagerState)
+        }
+    }
+}
+
+@OptIn(ExperimentalPagerApi::class)
+@Composable
+private fun SliderIndicator(pagerState: PagerState) {
+    Box(
+        Modifier
+            .offset(y = (165).dp)
+            .zIndex(1f)
+    ) {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier
+                .padding(horizontal = 10.dp)
+                .fillMaxWidth()
+        ) {
+            HorizontalPagerIndicator(
+                pagerState = pagerState,
+                modifier = Modifier.padding(top = 15.dp, bottom = 15.dp),
+                indicatorWidth = 5.dp,
+                indicatorHeight = 5.dp,
+                activeColor = Color(0xCEFFFFFF),
+                inactiveColor = Color(0x63B8B8B8),
+                spacing = 15.dp
+            )
         }
     }
 }

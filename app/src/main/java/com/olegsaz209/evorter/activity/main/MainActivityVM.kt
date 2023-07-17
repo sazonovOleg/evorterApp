@@ -12,7 +12,6 @@ import com.olegsaz209.evorter.activity.settings.SettingsActivity
 import com.olegsaz209.evorter.analytics.Analytics
 
 class MainActivityVM(application: Application) : AndroidViewModel(application) {
-
     init {
         Analytics.instance().logFirstOpen(getApplication())
     }
