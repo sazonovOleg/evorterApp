@@ -1,4 +1,4 @@
-package com.olegsaz209.evorter.activity.main.components.menu
+package com.olegsaz209.evorter.ui.menu
 
 import android.app.Activity
 import androidx.compose.foundation.Image
@@ -19,7 +19,7 @@ import com.olegsaz209.evorter.R
 import com.olegsaz209.evorter.activity.main.MainActivityVM
 
 @Composable
-fun MainMenu(vm: MainActivityVM = viewModel()) {
+fun Menu(vm: MainActivityVM = viewModel()) {
     val context = LocalContext.current
 
     Box(

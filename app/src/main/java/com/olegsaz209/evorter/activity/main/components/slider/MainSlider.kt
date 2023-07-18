@@ -87,21 +87,22 @@ private fun PagerSlider(pagerState: PagerState) {
                     horizontalAlignment = Alignment.CenterHorizontally,
                     modifier = Modifier.padding(start = 10.dp, top = 40.dp)
                 ) {
-                    Text(
-                        text = "Hello Atiq",
-                        color = Color(0xFFFFFFFF),
-                        fontWeight = FontWeight.Normal,
-                        fontSize = 14.sp,
-                        modifier = Modifier.fillMaxWidth(),
-                        textAlign = TextAlign.Start,
-                    )
+                    //TODO подумать нужен ли тут текст
+//                    Text(
+//                        text = "Hello Atiq",
+//                        color = Color(0xFFFFFFFF),
+//                        fontWeight = FontWeight.Normal,
+//                        fontSize = 14.sp,
+//                        modifier = Modifier.fillMaxWidth(),
+//                        textAlign = TextAlign.Start,
+//                    )
                     Text(
                         stringResource(id = pageSlide.title),
                         fontWeight = FontWeight.SemiBold,
-                        fontSize = 18.sp,
+                        fontSize = 16.sp,
                         color = Color(0xFFFAFAFA),
                         modifier = Modifier
-                            .fillMaxWidth()
+                            .fillMaxWidth(0.85f)
                             .padding(top = 3.dp),
                         textAlign = TextAlign.Start,
                     )

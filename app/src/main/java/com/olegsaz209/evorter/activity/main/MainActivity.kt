@@ -13,10 +13,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.olegsaz209.evorter.activity.main.components.content.MainContent
-import com.olegsaz209.evorter.activity.main.components.menu.MainMenu
 import com.olegsaz209.evorter.activity.main.components.slider.MainSlider
+import com.olegsaz209.evorter.ui.menu.Menu
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(bundle: Bundle?) {
@@ -30,28 +29,26 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MainView() {
-    Box() {
-        Column(
-            Modifier
-                .background(
-                    brush = Brush.horizontalGradient(
-                        colors = listOf(
-                            Color(0xFFFFFFFF),
-                            Color(0xFFFFFFFF),
-                            Color(0x16FF623B),
-                        )
+    Column(
+        Modifier
+            .background(
+                brush = Brush.horizontalGradient(
+                    colors = listOf(
+                        Color(0xFFFFFFFF),
+                        Color(0xFFFFFFFF),
+                        Color(0x16FF623B),
                     )
                 )
-                .verticalScroll(rememberScrollState())
-                .fillMaxSize(),
-            verticalArrangement = Arrangement.SpaceBetween,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            MainSlider()
-            MainContent()
-        }
-        MainMenu()
+            )
+            .verticalScroll(rememberScrollState())
+            .fillMaxSize(),
+        verticalArrangement = Arrangement.SpaceBetween,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        MainSlider()
+        MainContent()
     }
+    Menu()
 }
 
 @Preview
