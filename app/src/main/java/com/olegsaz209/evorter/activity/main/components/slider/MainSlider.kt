@@ -1,6 +1,6 @@
 package com.olegsaz209.evorter.activity.main.components.slider
 
-import androidx.compose.animation.core.tween
+import androidx.compose.animation.core.snap
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -11,6 +11,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.graphics.ColorMatrix
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -30,7 +32,7 @@ import kotlin.math.absoluteValue
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
-fun HeaderSlider(vm: MainActivityVM = viewModel()) {
+fun MainSlider(vm: MainActivityVM = viewModel()) {
     val pagerState = rememberPagerState(
         pageCount = sliderList.size
     )
@@ -41,17 +43,18 @@ fun HeaderSlider(vm: MainActivityVM = viewModel()) {
             delay(800000)
             pagerState.animateScrollToPage(
                 page = (pagerState.currentPage + 1) % (pagerState.pageCount),
-                animationSpec = tween(600)
+                animationSpec = snap(2500)
             )
         }
     }
 
     Column(
         Modifier
-            .height(390.dp)
+            .fillMaxHeight(1f)
             .offset(y = (-20).dp)
     ) {
         PagerSlider(pagerState)
+        SliderIndicator(pagerState)
     }
 }
 
@@ -59,7 +62,9 @@ fun HeaderSlider(vm: MainActivityVM = viewModel()) {
 @Composable
 private fun PagerSlider(pagerState: PagerState) {
     Column(
-        modifier = Modifier.clip(RoundedCornerShape(bottomEnd = 80.dp))
+        modifier = Modifier
+            .fillMaxSize(1f)
+            .clip(RoundedCornerShape(bottomEnd = 80.dp))
     ) {
         HorizontalPager(state = pagerState) { page ->
             Box(
@@ -68,7 +73,7 @@ private fun PagerSlider(pagerState: PagerState) {
                         val pageOffset =
                             calculateCurrentOffsetForPage(page).absoluteValue
                         lerp(
-                            start = 0.95f,
+                            start = 1f,
                             stop = 1f,
                             fraction = 1f - pageOffset.coerceIn(0f, 1f)
                         ).also { scale ->
@@ -108,6 +113,16 @@ private fun PagerSlider(pagerState: PagerState) {
                         .padding(top = 15.dp)
                         .zIndex(-1f)
                 ) {
+                    //Filter for images
+                    val contrast = 1.5f
+                    val brightness = -10f
+                    val colorMatrix = floatArrayOf(
+                        contrast, 0f, 0f, 0f, brightness,
+                        0f, contrast, 0f, 0f, brightness,
+                        0f, 0f, contrast, 0f, brightness,
+                        0f, 0f, 0f, 1f, 0f
+                    )
+
                     Image(
                         painterResource(
                             id = when (sliderList.size) {
@@ -118,7 +133,8 @@ private fun PagerSlider(pagerState: PagerState) {
                         contentDescription = "",
                         modifier = Modifier
                             .height(362.dp)
-                            .fillMaxWidth()
+                            .fillMaxWidth(),
+                        colorFilter = ColorFilter.colorMatrix(ColorMatrix(colorMatrix))
                     )
                 }
                 Column(
@@ -147,7 +163,6 @@ private fun PagerSlider(pagerState: PagerState) {
                     )
                 }
             }
-            SliderIndicator(pagerState)
         }
     }
 }
@@ -157,8 +172,9 @@ private fun PagerSlider(pagerState: PagerState) {
 private fun SliderIndicator(pagerState: PagerState) {
     Box(
         Modifier
-            .offset(y = (165).dp)
             .zIndex(1f)
+            .offset(y = (-25).dp),
+        contentAlignment = Alignment.BottomCenter,
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -168,11 +184,10 @@ private fun SliderIndicator(pagerState: PagerState) {
         ) {
             HorizontalPagerIndicator(
                 pagerState = pagerState,
-                modifier = Modifier.padding(top = 15.dp, bottom = 15.dp),
-                indicatorWidth = 5.dp,
-                indicatorHeight = 5.dp,
-                activeColor = Color(0xCEFFFFFF),
-                inactiveColor = Color(0x63B8B8B8),
+                indicatorWidth = 5.5.dp,
+                indicatorHeight = 5.5.dp,
+                activeColor = Color(0xFFFFFFFF),
+                inactiveColor = Color(0xF8FF623B),
                 spacing = 15.dp
             )
         }

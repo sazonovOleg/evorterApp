@@ -15,8 +15,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.olegsaz209.evorter.activity.main.components.content.MainContent
-import com.olegsaz209.evorter.activity.main.components.MainMenu
-import com.olegsaz209.evorter.activity.main.components.slider.HeaderSlider
+import com.olegsaz209.evorter.activity.main.components.menu.MainMenu
+import com.olegsaz209.evorter.activity.main.components.slider.MainSlider
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(bundle: Bundle?) {
@@ -36,18 +36,18 @@ fun MainView() {
                 .background(
                     brush = Brush.horizontalGradient(
                         colors = listOf(
-                            Color(0x4BBEBEBE),
-                            Color(0xB2FFCBBB),
+                            Color(0xFFFFFFFF),
+                            Color(0xFFFFFFFF),
+                            Color(0x16FF623B),
                         )
                     )
                 )
                 .verticalScroll(rememberScrollState())
-                .fillMaxSize()
-                .offset(y = (0).dp),
+                .fillMaxSize(),
             verticalArrangement = Arrangement.SpaceBetween,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            HeaderSlider()
+            MainSlider()
             MainContent()
         }
         MainMenu()

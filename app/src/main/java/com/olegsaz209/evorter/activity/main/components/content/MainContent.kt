@@ -22,11 +22,10 @@ fun MainContent() {
     Column(
         Modifier
             .padding(horizontal = 10.dp)
-            .offset(y = (0).dp)
             .fillMaxSize()
     ) {
         Text(
-            text = "Popular Destination",
+            text = "Популярные места",
             color = Color(0xFF000000),
             fontSize = 20.sp,
             fontWeight = FontWeight.SemiBold,
@@ -82,13 +81,13 @@ private fun MainItem(
                 stringResource(id = countryOfName),
                 modifier = Modifier.padding(bottom = 3.dp),
                 fontSize = 12.sp,
-                fontWeight = FontWeight.Light,
-                color = Color(0xFF006DC5),
+                fontWeight = FontWeight.Bold,
+                color = Color(0xF8FF623B),
             )
             Text(
                 stringResource(id = infoOfPlace),
                 fontSize = 12.sp,
-                fontWeight = FontWeight.Light,
+                fontWeight = FontWeight.Normal,
                 color = Color(0xFF696969),
             )
         }

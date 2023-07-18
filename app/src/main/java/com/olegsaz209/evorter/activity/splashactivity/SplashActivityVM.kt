@@ -15,6 +15,6 @@ class SplashActivityVM(application: Application) : AndroidViewModel(application)
             val intent = Intent(context, MainActivity::class.java)
             context.startActivity(intent)
             (context as Activity).finish()
-        }, 3000)
+        }, 1000)
     }
 }
