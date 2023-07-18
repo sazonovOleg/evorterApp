@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Evorter</string>
+    <string name="test">Test</string>
+    <string name="skip">Skip</string>
+    <string name="cont">Continue</string>
+    <string name="take_road">Что взять в дорогу ?</string>
+    <string name="currency_converter">Конвертер валют</string>
+    <string name="visa_country">Страны в которые нужна виза</string>
+    <string name="spb_title">Чёрные дни лучше пережить там, где есть белые ночи</string>
+    <string name="spb_place">Иссакиевский собор</string>
+    <string name="spb_name">Санкт-Петербург, Россия</string>
+    <string name="spb_place_info">Исаа́киевский собо́р — крупнейший православный храм в Санкт-Петербурге. Расположен на Исаакиевской площади.</string>
 </resources>

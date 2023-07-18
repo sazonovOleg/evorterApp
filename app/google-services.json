@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "70125325458",
+    "project_id": "evorter-82125",
+    "storage_bucket": "evorter-82125.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:70125325458:android:bb58d7d79d6a733ec66a4b",
+        "android_client_info": {
+          "package_name": "com.olegsaz209.evorter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "70125325458-crkqq44ce9elsmdcll1jftvragq93bqe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWRqV4DQcRcd9NW3Bus3orCUmnoyz1K1w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "70125325458-crkqq44ce9elsmdcll1jftvragq93bqe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,4 +1,4 @@
-package com.olegsaz209.evorter.splashactivity
+package com.olegsaz209.evorter.activity.splashactivity
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -45,11 +45,11 @@ private fun SplashScreen(vm: SplashActivityVM = viewModel()) {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Image(
-                    painterResource(id = R.drawable.icon_bg),
+                    painterResource(id = R.drawable.splash_background),
                     modifier = Modifier
                         .width(350.dp)
                         .height(350.dp),
-                    contentDescription = "Icon logo"
+                    contentDescription = "Splash logo"
                 )
                 vm.startMainActivity(context)
             }
