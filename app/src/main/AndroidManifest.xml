@@ -24,7 +24,7 @@
         tools:targetApi="s">
 
         <activity
-            android:name=".activity.splashactivity.SplashActivity"
+            android:name=".ui.screens.splashactivity.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,25 +33,25 @@
         </activity>
 
         <activity
-            android:name=".activity.main.MainActivity"
+            android:name=".ui.screens.main.MainActivity"
             android:theme="@android:style/Theme.Material.Light.NoActionBar"
             android:exported="true">
         </activity>
 
         <activity
-            android:name=".activity.places.PlacesActivity"
+            android:name=".ui.screens.places.PlacesActivity"
             android:theme="@android:style/Theme.Material.Light.NoActionBar"
             android:exported="true">
         </activity>
 
         <activity
-            android:name=".activity.booking.BookingActivity"
+            android:name=".ui.screens.travelservices.ServicesActivity"
             android:theme="@android:style/Theme.Material.Light.NoActionBar"
             android:exported="true">
         </activity>
 
         <activity
-            android:name=".activity.settings.SettingsActivity"
+            android:name=".ui.screens.settings.SettingsActivity"
             android:theme="@android:style/Theme.Material.Light.NoActionBar"
             android:exported="true">
         </activity>
