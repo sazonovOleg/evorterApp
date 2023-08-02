@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -24,6 +25,9 @@ import androidx.compose.ui.text.toUpperCase
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.olegsaz209.evorter.R
+import com.olegsaz209.evorter.ui.components.menu.Menu
+import com.olegsaz209.evorter.ui.shared.colors.AppColors
+import com.olegsaz209.evorter.ui.shared.ui.SmallAnimateButton
 import java.util.*
 
 class ServicesActivity : ComponentActivity() {
@@ -42,7 +46,8 @@ fun ServicesScreen() {
         modifier = Modifier
             .fillMaxSize(1f)
             .clip(RoundedCornerShape(10.dp))
-            .padding(top = 10.dp, start = 5.dp, end = 5.dp),
+            .background(brush = AppColors.mainBGGradient())
+            .padding(top = 30.dp, start = 15.dp, end = 15.dp),
         horizontalAlignment = Alignment.Start,
         verticalArrangement = Arrangement.Top,
     ) {
@@ -51,6 +56,7 @@ fun ServicesScreen() {
         ScreenItem()
         ScreenItem()
     }
+    Menu()
 }
 
 @Composable
@@ -59,6 +65,7 @@ fun ScreenItem() {
         Modifier
             .fillMaxWidth(1f)
             .heightIn(max = 150.dp)
+            .padding(bottom = 20.dp)
     ) {
         Image(
             painterResource(R.drawable.logo),
@@ -69,25 +76,24 @@ fun ScreenItem() {
                 .clip(RoundedCornerShape(5.dp)),
         )
         Column(
-            verticalArrangement = Arrangement.Top,
+            verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.Start,
-            modifier = Modifier.padding(start = 5.dp)
+            modifier = Modifier.padding(start = 10.dp)
         ) {
             Text(
                 text = "Aviasales".toUpperCase(Locale.ROOT),
                 color = Color.Black,
-                fontSize = 20.sp,
+                fontSize = 16.sp,
                 fontWeight = FontWeight.SemiBold,
                 modifier = Modifier.padding(top = 5.dp)
             )
             Text(
                 text = "Классика для поиска авиабилетов :)",
                 color = Color.Black,
-                fontSize = 16.sp,
+                fontSize = 13.sp,
+                modifier = Modifier.padding(bottom = 5.dp)
             )
-            Button(onClick = { /*TODO*/ }) {
-                Text(text = "Скачать приложение")
-            }
+            SmallAnimateButton(text = "Скачать приложение")
         }
     }
 }

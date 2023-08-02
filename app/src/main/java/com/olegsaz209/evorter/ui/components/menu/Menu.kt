@@ -38,7 +38,7 @@ fun Menu(vm: MainActivityVM = viewModel()) {
                     .fillMaxWidth()
                     .clip(RoundedCornerShape(15.dp))
                     .background(color = Color(0xF8FF623B))
-                    .padding(horizontal = 35.dp, vertical = 15.dp),
+                    .padding(horizontal = 35.dp, vertical = 8.dp),
                 horizontalArrangement = Arrangement.SpaceBetween,
             ) {
                 IconButton(onClick = {
