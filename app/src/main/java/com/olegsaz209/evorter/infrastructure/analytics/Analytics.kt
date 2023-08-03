@@ -6,7 +6,7 @@ import android.os.Bundle
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.crashlytics.FirebaseCrashlytics
 
-class Analytics private constructor() {
+class Analytics {
     private val FIRST_OPEN = "app_first_open"
 
     fun init(app: Application) {

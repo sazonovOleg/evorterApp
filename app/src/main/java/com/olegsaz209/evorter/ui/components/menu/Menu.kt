@@ -1,8 +1,10 @@
 package com.olegsaz209.evorter.ui.components.menu
 
 import android.app.Activity
+import android.content.Context
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -14,6 +16,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.olegsaz209.evorter.R
@@ -31,61 +34,56 @@ fun Menu(vm: MainActivityVM = viewModel()) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(start = 2.dp, end = 2.dp, bottom = 2.dp)
+                .padding(start = 7.dp, end = 7.dp, bottom = 7.dp)
         ) {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
                     .clip(RoundedCornerShape(15.dp))
-                    .background(color = Color(0xF8FF623B))
-                    .padding(horizontal = 35.dp, vertical = 8.dp),
+                    .background(color = Color(0xFFFFFFFF))
+                    .padding(horizontal = 25.dp, vertical = 10.dp),
                 horizontalArrangement = Arrangement.SpaceBetween,
             ) {
-                IconButton(onClick = {
+                MenuItem(
+                    drawableRes = R.drawable.home_1, iconSize = 42.dp) {
                     vm.startMainActivity(context as Activity)
-                }) {
-                    Image(
-                        painterResource(id = R.drawable.house),
-                        contentDescription = "",
-                        modifier = Modifier
-                            .width(28.dp)
-                            .height(28.dp)
-                    )
+
                 }
-                IconButton(onClick = {
+                MenuItem(
+                    drawableRes = R.drawable.locations, iconSize = 42.dp) {
                     vm.startPlacesActivity(context as Activity)
-                }) {
-                    Image(
-                        painterResource(id = R.drawable.map),
-                        contentDescription = "",
-                        modifier = Modifier
-                            .width(26.dp)
-                            .height(28.dp)
-                    )
+
                 }
-                IconButton(onClick = {
+                MenuItem(
+                    drawableRes = R.drawable.apps_help, iconSize = 42.dp) {
                     vm.startBookingActivity(context as Activity)
-                }) {
-                    Image(
-                        painterResource(id = R.drawable.booking),
-                        contentDescription = "",
-                        modifier = Modifier
-                            .width(26.dp)
-                            .height(28.dp)
-                    )
+
                 }
-                IconButton(onClick = {
+                MenuItem(
+                    drawableRes = R.drawable.settings_2, iconSize = 42.dp) {
                     vm.startSettingsActivity(context as Activity)
-                }) {
-                    Image(
-                        painterResource(id = R.drawable.settings),
-                        contentDescription = "",
-                        modifier = Modifier
-                            .width(28.dp)
-                            .height(28.dp)
-                    )
+
                 }
             }
         }
+    }
+}
+
+@Composable
+fun MenuItem(
+    drawableRes: Int,
+    iconSize: Dp,
+    onClick: (() -> Unit)? = null,
+) {
+    IconButton(onClick = {
+        onClick?.invoke()
+    }) {
+        Image(
+            painterResource(id = drawableRes),
+            contentDescription = "",
+            modifier = Modifier
+                .width(iconSize)
+                .height(iconSize)
+        )
     }
 }

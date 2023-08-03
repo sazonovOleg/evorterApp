@@ -13,7 +13,7 @@ class MyApp : Application() {
 
         FirebaseApp.initializeApp(applicationContext)
 
-        RemoteConfig.remoteConfigInit()
+        RemoteConfig.init()
 
         Analytics.instance().init(this)
 

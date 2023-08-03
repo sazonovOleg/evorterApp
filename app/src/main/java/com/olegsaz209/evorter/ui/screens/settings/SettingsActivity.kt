@@ -20,12 +20,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
 import com.olegsaz209.evorter.R
 import com.olegsaz209.evorter.ui.components.menu.Menu
 import com.olegsaz209.evorter.ui.shared.colors.AppColors
+import com.olegsaz209.evorter.ui.shared.colors.Fonts
 import com.olegsaz209.evorter.ui.shared.ui.coloredShadow
 import com.olegsaz209.evorter.ui.shared.ui.elevationZero
 
@@ -69,21 +71,21 @@ fun SettingsView() {
                     .background(Color(0x8FFFFFFF))
                     .zIndex(1f)
             ) {
-                SettingsViewItem(imgId = R.drawable.favorites, stringId = "Избранное") {
+                SettingsViewItem(imgId = R.drawable.favorite_s, stringId = "Избранное") {
                     Log.d("Devv", "devv click ")
                 }
                 Spacer(modifier = Modifier
                     .fillMaxWidth(1f)
                     .height(1.dp)
                     .background(Color(0x8FD1D1D1)))
-                SettingsViewItem(imgId = R.drawable.share, stringId = "Поделиться") {
+                SettingsViewItem(imgId = R.drawable.share_4, stringId = "Поделиться") {
                     Log.d("Devv", "devv click ")
                 }
                 Spacer(modifier = Modifier
                     .fillMaxWidth(1f)
                     .height(1.dp)
                     .background(Color(0x8FD1D1D1)))
-                SettingsViewItem(imgId = R.drawable.about, stringId = "О приложении") {
+                SettingsViewItem(imgId = R.drawable.info, stringId = "О приложении") {
                     Log.d("Devv", "devv click ")
                 }
             }
@@ -121,13 +123,14 @@ fun SettingsViewItem(
                 painterResource(imgId),
                 contentDescription = "",
                 modifier = Modifier
-                    .width(40.dp)
-                    .height(40.dp)
+                    .width(43.dp)
+                    .height(43.dp)
             )
             Text(
                 text = stringId,
                 modifier = Modifier.padding(start = 15.dp),
-                fontSize = 17.sp,
+                fontSize = 18.sp,
+                fontFamily = Fonts.getNunitoFont(R.font.regular)
             )
         }
     }

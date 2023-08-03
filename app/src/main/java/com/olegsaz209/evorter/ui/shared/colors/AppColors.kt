@@ -11,7 +11,9 @@ object AppColors {
             colors = listOf(
                 Color(0xFFFFFFFF),
                 Color(0xFFFFFFFF),
-                Color(0xF8FFE2DB),
+                Color(0xFFFFFFFF),
+                Color(0xFFFFFFFF),
+                Color(0xFFDADADA),
             )
         )
     }

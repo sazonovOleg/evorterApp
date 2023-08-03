@@ -19,6 +19,7 @@ import androidx.compose.ui.unit.sp
 import com.olegsaz209.evorter.R
 import com.olegsaz209.evorter.ui.components.menu.Menu
 import com.olegsaz209.evorter.ui.shared.colors.AppColors
+import com.olegsaz209.evorter.ui.shared.colors.Fonts
 
 class PlacesActivity : ComponentActivity() {
     override fun onCreate(bundle: Bundle?) {
@@ -56,7 +57,7 @@ fun PlacesViewItem() {
             .clip(RoundedCornerShape(10.dp))
             .padding(top = 10.dp, start = 5.dp, end = 5.dp)
             .border(
-                BorderStroke(1.dp, SolidColor(Color(0xF8FF623B))),
+                BorderStroke(1.dp, SolidColor(Color(0xFF485E7D))),
                 shape = RoundedCornerShape(10.dp),
             ),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -82,8 +83,8 @@ fun PlacesViewItem() {
                 Text(
                     text = "Санкт-Петербург",
                     color = Color(0xF8FFF9F7),
-                    fontWeight = FontWeight.Normal,
-                    fontSize = 15.sp,
+                    fontSize = 13.sp,
+                    fontFamily = Fonts.getNunitoFont(R.font.semibold_italic),
                 )
             }
         }

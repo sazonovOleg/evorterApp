@@ -5,7 +5,7 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
 
 object RemoteConfig {
-    fun remoteConfigInit() {
+    fun init() {
         FirebaseRemoteConfig.getInstance().fetchAndActivate()
             .addOnCompleteListener { task: Task<Boolean?> ->
                 try {

@@ -12,8 +12,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.olegsaz209.evorter.R
+import com.olegsaz209.evorter.ui.shared.colors.Fonts
 
 @Composable
 fun MainContent() {
@@ -26,9 +29,9 @@ fun MainContent() {
     ) {
         Text(
             text = "Популярные места",
-            color = Color(0xFF000000),
+            color = Color(0xFF39444B),
             fontSize = 20.sp,
-            fontWeight = FontWeight.SemiBold,
+            fontFamily = Fonts.getNunitoFont(R.font.bold),
             modifier = Modifier.padding(bottom = 5.dp)
         )
         Column() {
@@ -40,7 +43,7 @@ fun MainContent() {
                     it.placeImage,
                 )
             }
-            Spacer(modifier = Modifier.height(60.dp))
+            Spacer(modifier = Modifier.height(70.dp))
         }
     }
 }
@@ -73,21 +76,22 @@ private fun MainItem(
             Text(
                 stringResource(id = nameOfPlace),
                 modifier = Modifier.padding(bottom = 3.dp),
-                fontSize = 14.sp,
-                fontWeight = FontWeight.SemiBold,
+                fontSize = 15.sp,
+                fontFamily = Fonts.getNunitoFont(R.font.bold),
                 color = Color(0xFF414141),
             )
             Text(
                 stringResource(id = countryOfName),
                 modifier = Modifier.padding(bottom = 3.dp),
                 fontSize = 12.sp,
-                fontWeight = FontWeight.Bold,
-                color = Color(0xF8FF623B),
+                fontFamily = Fonts.getNunitoFont(R.font.bold),
+                color = Color(0xFFF36985),
             )
             Text(
                 stringResource(id = infoOfPlace),
+                lineHeight = 16.sp,
                 fontSize = 12.sp,
-                fontWeight = FontWeight.Normal,
+                fontFamily = Fonts.getNunitoFont(R.font.regular),
                 color = Color(0xFF696969),
             )
         }
