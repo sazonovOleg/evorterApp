@@ -1,9 +1,6 @@
 package com.olegsaz209.evorter.ui.screens.settings
 
-import android.os.Bundle
 import android.util.Log
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -11,7 +8,6 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
-import androidx.compose.material.ButtonColors
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -20,10 +16,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
+import androidx.navigation.NavHostController
 import com.olegsaz209.evorter.R
 import com.olegsaz209.evorter.ui.components.menu.Menu
 import com.olegsaz209.evorter.ui.shared.colors.AppColors
@@ -31,18 +27,10 @@ import com.olegsaz209.evorter.ui.shared.colors.Fonts
 import com.olegsaz209.evorter.ui.shared.ui.coloredShadow
 import com.olegsaz209.evorter.ui.shared.ui.elevationZero
 
-class SettingsActivity : ComponentActivity() {
-    override fun onCreate(bundle: Bundle?) {
-        super.onCreate(bundle)
-
-        setContent {
-            SettingsView()
-        }
-    }
-}
-
 @Composable
-fun SettingsView() {
+fun SettingsView(
+    navHostController: NavHostController,
+) {
     Column(
         modifier = Modifier
             .fillMaxSize(1f)
@@ -53,13 +41,15 @@ fun SettingsView() {
         verticalArrangement = Arrangement.Top,
     ) {
         Row(
-            modifier = Modifier.coloredShadow(
-                color = Color(0xFFE0E0E0),
-                alpha = 0.3f,
-                borderRadius = 10.dp,
-                shadowRadius = 3.dp,
-                offsetY = (3).dp
-            ).zIndex(0f)
+            modifier = Modifier
+                .coloredShadow(
+                    color = Color(0xFFE0E0E0),
+                    alpha = 0.3f,
+                    borderRadius = 10.dp,
+                    shadowRadius = 3.dp,
+                    offsetY = (3).dp
+                )
+                .zIndex(0f)
         ) {
             Column(
                 modifier = Modifier
@@ -91,7 +81,7 @@ fun SettingsView() {
             }
         }
     }
-    Menu()
+    Menu(navHostController = navHostController)
 }
 
 @Composable

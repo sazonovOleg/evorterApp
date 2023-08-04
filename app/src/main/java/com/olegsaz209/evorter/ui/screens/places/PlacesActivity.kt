@@ -1,8 +1,5 @@
 package com.olegsaz209.evorter.ui.screens.places
 
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -13,27 +10,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.*
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.olegsaz209.evorter.R
 import com.olegsaz209.evorter.ui.components.menu.Menu
 import com.olegsaz209.evorter.ui.shared.colors.AppColors
 import com.olegsaz209.evorter.ui.shared.colors.Fonts
 
-class PlacesActivity : ComponentActivity() {
-    override fun onCreate(bundle: Bundle?) {
-        super.onCreate(bundle)
-
-        setContent {
-            PlacesView()
-        }
-    }
-}
-
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-private fun PlacesView() {
+fun PlacesView(navHostController: NavHostController) {
     FlowRow(
         modifier = Modifier
             .fillMaxSize(1f)
@@ -46,7 +33,7 @@ private fun PlacesView() {
         PlacesViewItem()
         PlacesViewItem()
     }
-    Menu()
+    Menu(navHostController = navHostController)
 }
 
 @Composable
