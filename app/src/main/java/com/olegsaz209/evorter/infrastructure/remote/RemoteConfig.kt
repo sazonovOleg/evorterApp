@@ -1,4 +1,4 @@
-package com.olegsaz209.evorter.infrastructure.remote_config
+package com.olegsaz209.evorter.infrastructure.remote
 
 import android.util.Log
 import com.google.android.gms.tasks.Task

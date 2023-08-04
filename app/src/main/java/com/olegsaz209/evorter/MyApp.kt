@@ -4,7 +4,7 @@ import android.app.Application
 import android.content.Intent
 import com.google.firebase.FirebaseApp
 import com.olegsaz209.evorter.infrastructure.analytics.Analytics
-import com.olegsaz209.evorter.infrastructure.remote_config.RemoteConfig
+import com.olegsaz209.evorter.infrastructure.remote.RemoteConfig
 import com.olegsaz209.evorter.ui.screens.splashactivity.SplashActivity
 
 class MyApp : Application() {

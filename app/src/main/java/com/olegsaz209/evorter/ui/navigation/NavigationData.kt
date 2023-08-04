@@ -1,4 +1,4 @@
-package com.olegsaz209.evorter.ui.components.navigation
+package com.olegsaz209.evorter.ui.navigation
 
 data class NavigationViewData(
     val route: String,

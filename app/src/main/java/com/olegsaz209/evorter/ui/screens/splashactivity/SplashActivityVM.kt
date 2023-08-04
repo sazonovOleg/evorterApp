@@ -6,7 +6,7 @@ import android.content.Intent
 import android.os.Handler
 import android.os.Looper
 import androidx.lifecycle.AndroidViewModel
-import com.olegsaz209.evorter.ui.components.navigation.Navigation
+import com.olegsaz209.evorter.ui.navigation.Navigation
 
 class SplashActivityVM(application: Application) : AndroidViewModel(application) {
     private fun startApp(context: Context) {

@@ -33,7 +33,7 @@
         </activity>
 
         <activity
-            android:name=".ui.components.navigation.Navigation"
+            android:name=".ui.navigation.Navigation"
             android:theme="@android:style/Theme.Material.Light.NoActionBar"
             android:exported="true">
         </activity>
