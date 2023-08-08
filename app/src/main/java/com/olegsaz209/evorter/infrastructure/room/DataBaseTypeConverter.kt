@@ -15,14 +15,14 @@ class DataBaseTypeConverter {
     }
 
     @TypeConverter
-    fun fromMapRates(ratesList: Map<String, String>): String {
+    fun fromMap(ratesList: Map<String, String>): String {
         return ratesList.toString()
     }
 
     @TypeConverter
-    fun toMapRates(ratesString: String): Map<String, String> {
-        Log.d("devv", "devv what in ratesString = $ratesString")
-        return ratesString
+    fun toMap(mapString: String): Map<String, String> {
+        Log.d("devv", "devv what in toMap = $mapString")
+        return mapString
             .split(",")
             .map { it.split(":") }
             .associate { it.first() to it.last() }.toMap()

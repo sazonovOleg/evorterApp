@@ -17,4 +17,8 @@ object RemoteConfig {
                 }
             }
     }
+
+    fun getDataFromRemote() {
+        FirebaseRemoteConfig.getInstance().getString("app_data_country")
+    }
 }

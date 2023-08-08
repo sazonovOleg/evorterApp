@@ -6,7 +6,10 @@ import android.content.Intent
 import android.os.Handler
 import android.os.Looper
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.viewModelScope
+import com.olegsaz209.evorter.infrastructure.fbdb.FirebaseData
 import com.olegsaz209.evorter.ui.navigation.Navigation
+import kotlinx.coroutines.launch
 
 class SplashActivityVM(application: Application) : AndroidViewModel(application) {
     private fun startApp(context: Context) {
@@ -18,6 +21,9 @@ class SplashActivityVM(application: Application) : AndroidViewModel(application)
     }
 
     fun init() {
+        viewModelScope.launch {
+            FirebaseData.getFromFirestore()
+        }
         startApp(getApplication())
     }
 }

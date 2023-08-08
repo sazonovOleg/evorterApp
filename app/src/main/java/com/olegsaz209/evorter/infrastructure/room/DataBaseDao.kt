@@ -5,14 +5,14 @@ import androidx.room.*
 @Dao
 interface DataBaseDao {
     @Insert
-    suspend fun addToDataBase(currencyData: DataBase)
+    suspend fun addToDataBase(dataBaseInfo: DataBaseInfo)
 
-    @Query("SELECT * FROM fb_database")
-    suspend fun getDataBaseList(): List<DataBase>
-
-    @Update
-    suspend fun updateDataBase(currencyData: DataBase)
+    @Query("SELECT * FROM fb_data_base")
+    suspend fun getDataBaseList(): List<DataBaseInfo>
 
     @Update
-    suspend fun deleteDataBase(currencyData: DataBase)
+    suspend fun updateDataBase(dataBaseInfo: DataBaseInfo)
+
+    @Update
+    suspend fun deleteDataBase(dataBaseInfo: DataBaseInfo)
 }
