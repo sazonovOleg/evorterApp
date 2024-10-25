@@ -1,11 +1,11 @@
-package com.olegsaz209.evorter.infrastructure.remote_config
+package com.olegsaz209.evorter.infrastructure.remote
 
 import android.util.Log
 import com.google.android.gms.tasks.Task
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
 
 object RemoteConfig {
-    fun remoteConfigInit() {
+    fun init() {
         FirebaseRemoteConfig.getInstance().fetchAndActivate()
             .addOnCompleteListener { task: Task<Boolean?> ->
                 try {
@@ -16,5 +16,9 @@ object RemoteConfig {
                     Log.d("FirebaseError", "firebase error + $e")
                 }
             }
+    }
+
+    fun getDataFromRemote() {
+        FirebaseRemoteConfig.getInstance().getString("app_data_country")
     }
 }

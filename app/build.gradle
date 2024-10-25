@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'com.google.gms.google-services'
     id "com.google.firebase.crashlytics"
+    id 'kotlin-kapt'
 }
 
 android {
@@ -59,12 +60,13 @@ dependencies {
     implementation "androidx.compose.runtime:runtime-livedata:$compose_version"
     implementation "androidx.compose.ui:ui-tooling:$compose_version"
     implementation "androidx.compose.ui:ui-util:$compose_version"
+    implementation 'androidx.navigation:navigation-compose:2.5.3'
     // Integration with activities
     implementation 'androidx.activity:activity-compose:1.4.0'
     // Animations
     implementation 'androidx.compose.animation:animation:1.1.1'
     // Integration with ViewModels
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:2.5.3'
     // Foundation (Border, Background, Box, Image, Scroll, shapes, animations, etc.)
     implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
     //Flow layout compose
@@ -80,4 +82,17 @@ dependencies {
     implementation 'com.google.firebase:firebase-config:21.4.1'
     implementation("com.google.firebase:firebase-crashlytics-ndk")
     implementation("com.google.firebase:firebase-analytics-ktx")
+    implementation("com.google.firebase:firebase-firestore-ktx")
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.6.4'
+
+    //http & serialization
+    implementation 'com.android.volley:volley:1.2.1'
+    implementation 'com.google.code.gson:gson:2.9.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1'
+
+    //Room library
+    kapt "org.xerial:sqlite-jdbc:3.36.0" /// MacM1 dependency
+    kapt "androidx.room:room-compiler:2.5.2"
+    implementation "androidx.room:room-runtime:2.5.2"
+    implementation "androidx.room:room-ktx:2.5.2"
 }

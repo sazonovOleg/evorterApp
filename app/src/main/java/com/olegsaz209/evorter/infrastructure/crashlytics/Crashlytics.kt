@@ -2,7 +2,7 @@ package com.olegsaz209.evorter.infrastructure.crashlytics
 
 import com.google.firebase.crashlytics.FirebaseCrashlytics
 
-object FirebaseCrashlytics {
+object Crashlytics {
     private val fc = FirebaseCrashlytics.getInstance()
 
     fun logToCrashlytics(throwable: Throwable,event: String) {

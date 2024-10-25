@@ -26,6 +26,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.google.accompanist.pager.*
 import com.olegsaz209.evorter.R
 import com.olegsaz209.evorter.ui.screens.main.MainActivityVM
+import com.olegsaz209.evorter.ui.shared.colors.Fonts
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.yield
 import kotlin.math.absoluteValue
@@ -87,19 +88,10 @@ private fun PagerSlider(pagerState: PagerState) {
                     horizontalAlignment = Alignment.CenterHorizontally,
                     modifier = Modifier.padding(start = 10.dp, top = 40.dp)
                 ) {
-                    //TODO подумать нужен ли тут текст
-//                    Text(
-//                        text = "Hello Atiq",
-//                        color = Color(0xFFFFFFFF),
-//                        fontWeight = FontWeight.Normal,
-//                        fontSize = 14.sp,
-//                        modifier = Modifier.fillMaxWidth(),
-//                        textAlign = TextAlign.Start,
-//                    )
                     Text(
                         stringResource(id = pageSlide.title),
-                        fontWeight = FontWeight.SemiBold,
-                        fontSize = 16.sp,
+                        fontFamily = Fonts.getNunitoFont(R.font.semibold),
+                        fontSize = 15.sp,
                         color = Color(0xFFFAFAFA),
                         modifier = Modifier
                             .fillMaxWidth(0.85f)
@@ -145,8 +137,8 @@ private fun PagerSlider(pagerState: PagerState) {
                 ) {
                     Text(
                         stringResource(id = pageSlide.subtitle),
-                        fontWeight = FontWeight.Bold,
                         fontSize = 18.sp,
+                        fontFamily = Fonts.getNunitoFont(R.font.bold),
                         color = Color(0xFFFFFFFF),
                         modifier = Modifier
                             .fillMaxWidth(),
@@ -154,8 +146,8 @@ private fun PagerSlider(pagerState: PagerState) {
                     )
                     Text(
                         stringResource(id = pageSlide.text),
-                        fontWeight = FontWeight.Normal,
                         fontSize = 14.sp,
+                        fontFamily = Fonts.getNunitoFont(R.font.semibold_italic),
                         color = Color(0xFFFFFFFF),
                         modifier = Modifier
                             .fillMaxWidth()
@@ -188,7 +180,7 @@ private fun SliderIndicator(pagerState: PagerState) {
                 indicatorWidth = 5.5.dp,
                 indicatorHeight = 5.5.dp,
                 activeColor = Color(0xFFFFFFFF),
-                inactiveColor = Color(0xF8FF623B),
+                inactiveColor = Color(0xFFFB6884),
                 spacing = 15.dp
             )
         }
